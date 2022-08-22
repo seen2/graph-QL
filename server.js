@@ -2,15 +2,24 @@ import { ApolloServer,gql } from 'apollo-server';
 
 import {ApolloServerPluginLandingPageLocalDefault} from'apollo-server-core';
 
+//Scalar Types: (String,Int,Float,Boolean) or null
+//to  avoid null use(!) like String!
+
 const typeDefs = gql`
   type Query {
-    hello: String
+    hello: String,
+    numberOfAnimals:Int!,
+    price:Float,
+    isCool:Boolean
   }
 `
 
 const resolvers = {
   Query: {
     hello: () => "World",
+    numberOfAnimals:()=>null,
+    price:()=>201.33,
+    isCool:()=>false
   },
 };
 
